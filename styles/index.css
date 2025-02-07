@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    font-family: 'Swanky and Moo Moo', cursive;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.text {
+    margin: 4rem;
+    font-size: 5rem;
+}
+
+
+.heart-container {
+  display: grid;
+  grid-template-columns: repeat(15, 2rem);
+  grid-template-rows: repeat(13, 2rem);
+  gap: 5px 5px;
+  grid-auto-flow: row;
+  /* grid-template-areas:
+    ". . row-1 row-1 row-1 row-1 . . . row-1v2 row-1v2 row-1v2 row-1v2 . ."
+    ". row-2 row-2 row-2 row-2 row-2 row-2 . row-2v2 row-2v2 row-2v2 row-2v2 row-2v2 row-2v2 ."
+    "row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6"
+    "row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6"
+    "row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6"
+    "row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6"
+    ". row-7 row-7 row-7 row-7 row-7 row-7 row-7 row-7 row-7 row-7 row-7 row-7 row-7 ."
+    ". . row-8 row-8 row-8 row-8 row-8 row-8 row-8 row-8 row-8 row-8 row-8 . ."
+    ". . . row-9 row-9 row-9 row-9 row-9 row-9 row-9 row-9 row-9 . . ."
+    ". . . . row-10 row-10 row-10 row-10 row-10 row-10 row-10 . . . ."
+    ". . . . .  row-11 row-11 row-11 row-11 row-11 . . . . ."
+    ". . . . . . row-12 row-12 row-12 . . . . . ."
+    ". . . . . . . row-13 . . . . . . ."
+  ; */
+  grid-template-areas:
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ;
+  ;
+}
+
+.empty-box {
+  background-color: white;
+}
+
+.heart-box {
+  /* background-color: red; */
+  height: 2rem;
+  width: 2rem;
+
+  /* background-image: url(https://placekittens.com/400/400);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat; */
+
+  perspective: 1000;
+}
+
+.heart-box .front,
+.heart-box .back {
+    backface-visibility: hidden;
+}
+
+.heart-box .front {
+    /* position: absolute; */
+    height: 2rem;
+    width: 2rem;
+    background-color: red;
+    z-index: 2;
+}
+
+.heart-box .back {
+    /* position: absolute; */
+    height: 2rem;
+    width: 2rem;
+    background-color: black;
+    transform: rotateY(180deg);
+}
+
+/* Animation */
+
+.heart-box {
+    transition: 0.6s;
+	transform-style: preserve-3d;
+}
+
+.heart-box:hover, .heart-box.hover {
+    transform: rotateY(180deg);
+}
