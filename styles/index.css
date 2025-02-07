@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: 'Swanky and Moo Moo', cursive;
+    touch-action: manipulation; /* disable zoom in on mobile devices */
 }
 
 .page-container {
@@ -73,21 +74,21 @@ body {
   perspective: 1000;
 }
 
-.heart-box .front,
-.heart-box .back {
+.heart-box .flipper .front,
+.heart-box .flipper .back {
     backface-visibility: hidden;
 }
 
-.heart-box .front {
-    /* position: absolute; */
+.heart-box .flipper .front {
+    position: absolute;
     height: 2rem;
     width: 2rem;
     background-color: red;
     z-index: 2;
 }
 
-.heart-box .back {
-    /* position: absolute; */
+.heart-box .flipper .back {
+    position: absolute;
     height: 2rem;
     width: 2rem;
     background-color: black;
@@ -96,11 +97,12 @@ body {
 
 /* Animation */
 
-.heart-box {
+.heart-box .flipper {
     transition: 0.6s;
 	transform-style: preserve-3d;
 }
 
-.heart-box:hover, .heart-box.hover {
+.heart-box:hover .flipper,
+.heart-box.hover .flipper {
     transform: rotateY(180deg);
 }
