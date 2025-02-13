@@ -114,11 +114,11 @@ let clickAndTouchListener = (e) => {
     }
 }
 
-// // For PC (Click Listener)
-// heartContainer.addEventListener('click', clickAndTouchListener);
+// For PC (Click Listener)
+heartContainer.addEventListener('click', clickAndTouchListener);
 
-// // For Mobile (Touch Listener)
-// heartContainer.addEventListener('touchstart', clickAndTouchListener, { passive: true });
+// For Mobile (Touch Listener)
+heartContainer.addEventListener('touchstart', clickAndTouchListener, { passive: true });
 
 // setTimeout(() => {
 //     let heartContainer = document.querySelector('.heart-container');
