@@ -1,7 +1,49 @@
+@media screen and (orientation: landscape) {
+    html {
+        font-size: 12px;
+    }
+
+    .text-top {
+        margin-top: 10rem;
+    }
+
+    .text-bottom {
+        margin-top: -20rem;
+    }
+
+    /* For Valentine Animation */
+    .text-bottom.my-valentine {
+        margin-top: -12rem;
+        font-size: 8rem;
+    }
+}
+
+@media (orientation: portrait) { 
+    /* For Valentine Animation */
+    .text-bottom.my-valentine {
+        margin-top: -38rem;
+        font-size: 8rem;
+    }
+
+    .text-top {
+        margin-top: 40rem;
+    }
+
+    .text-bottom {
+        margin-top: -47.5rem;
+    }
+}
+
 body {
     margin: 0;
     font-family: 'Swanky and Moo Moo', cursive;
     touch-action: manipulation; /* disable zoom in on mobile devices */
+    overflow: hidden;
+}
+
+* {
+    touch-action: manipulation; /* disable zoom in on mobile devices */
+    /* border: solid 1px red; */
 }
 
 .page-container {
@@ -12,34 +54,46 @@ body {
     height: 100vh;
 }
 
+.text-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .text {
-    margin: 4rem;
+    position: absolute;
+    color: black; 
     font-size: 5rem;
+    z-index: 2;
+    text-align: center;
+}
+
+.text.time-is-ripe {
+    color: #ff2e63;
+}
+
+.text-top.my-valentine,
+.text-bottom.my-valentine > .question-mark {
+    opacity: 0;
 }
 
 
-.heart-container {
+.heart-container {  
   display: grid;
   grid-template-columns: repeat(15, 2rem);
-  grid-template-rows: repeat(13, 2rem);
+  grid-template-rows: repeat(23, 2rem);
   gap: 5px 5px;
   grid-auto-flow: row;
-  /* grid-template-areas:
-    ". . row-1 row-1 row-1 row-1 . . . row-1v2 row-1v2 row-1v2 row-1v2 . ."
-    ". row-2 row-2 row-2 row-2 row-2 row-2 . row-2v2 row-2v2 row-2v2 row-2v2 row-2v2 row-2v2 ."
-    "row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6"
-    "row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6"
-    "row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6"
-    "row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6 row-3-6"
-    ". row-7 row-7 row-7 row-7 row-7 row-7 row-7 row-7 row-7 row-7 row-7 row-7 row-7 ."
-    ". . row-8 row-8 row-8 row-8 row-8 row-8 row-8 row-8 row-8 row-8 row-8 . ."
-    ". . . row-9 row-9 row-9 row-9 row-9 row-9 row-9 row-9 row-9 . . ."
-    ". . . . row-10 row-10 row-10 row-10 row-10 row-10 row-10 . . . ."
-    ". . . . .  row-11 row-11 row-11 row-11 row-11 . . . . ."
-    ". . . . . . row-12 row-12 row-12 . . . . . ."
-    ". . . . . . . row-13 . . . . . . ."
-  ; */
   grid-template-areas:
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
     ". . . . . . . . . . . . . . ."
     ". . . . . . . . . . . . . . ."
     ". . . . . . . . . . . . . . ."
@@ -55,10 +109,40 @@ body {
     ". . . . . . . . . . . . . . ."
     ;
   ;
+
+  transition: 0.6s;
+
 }
 
-.empty-box {
-  background-color: white;
+.heart-container.enlarge {
+    grid-template-columns: repeat(15, 4rem);
+    grid-template-rows: repeat(23, 4rem);;
+    gap: 0px 0px;
+}
+
+.heart-container.enlarge .empty-box,
+.heart-container.enlarge .heart-box {
+    height: 4rem;
+    width: 4rem;
+}
+
+.heart-container.enlarge .empty-box .flipper .front,
+.heart-container.enlarge .heart-box .flipper .front {
+    height: 4rem;
+    width: 4rem;
+}
+
+.heart-container.enlarge .empty-box{
+    background-image: url(../images/bg.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.heart-container.enlarge .empty-box .flipper .front {
+    height: 4.5rem;
+    width: 4.5rem;
 }
 
 .heart-box {
@@ -66,18 +150,40 @@ body {
   height: 2rem;
   width: 2rem;
 
-  /* background-image: url(https://placekittens.com/400/400);
+  background-image: url(../images/bg.jpg);
   background-attachment: fixed;
   background-position: center;
-  background-repeat: no-repeat; */
+  background-repeat: no-repeat;
+  background-size: contain;
 
-  perspective: 1000;
+  transition: 0.6s;
 }
 
+.empty-box {
+    height: 2rem;
+    width: 2rem;
+
+    transition: 0.6s;
+}
+
+.heart-box .flipper .front {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: black;
+}
+.heart-box.yes-text .flipper .front::before {
+    content: 'Yes';
+}
+
+.empty-box .flipper .front,
+.empty-box .flipper .back,
 .heart-box .flipper .front,
 .heart-box .flipper .back {
     backface-visibility: hidden;
 }
+
 
 .heart-box .flipper .front {
     position: absolute;
@@ -85,24 +191,43 @@ body {
     width: 2rem;
     background-color: red;
     z-index: 2;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    transition: 0.6s;
 }
 
+.heart-box.time-is-ripe .flipper .front {
+    background-color: #ff2e63;
+}
+
+.empty-box .flipper .front {
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    background-color: white;
+    z-index: 2;
+}
+
+.empty-box .flipper .back,
 .heart-box .flipper .back {
     position: absolute;
     height: 2rem;
     width: 2rem;
-    background-color: black;
+    /* background-color: black; */
+    background: rgba(0,0,0,0);
     transform: rotateY(180deg);
 }
 
 /* Animation */
 
+.empty-box .flipper,
 .heart-box .flipper {
     transition: 0.6s;
 	transform-style: preserve-3d;
 }
 
-.heart-box:hover .flipper,
+.empty-box.hover .flipper,
 .heart-box.hover .flipper {
     transform: rotateY(180deg);
 }
