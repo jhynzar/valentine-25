@@ -16,6 +16,15 @@ setTimeout(() => {
             el.style.transition = "0.6s";
         },2000)
     });
+
+    setTimeout(() => {
+        let parentHeartBox = document.querySelectorAll('.heart-box');
+
+        parentHeartBox.forEach((element) => element.classList.add('hover'))
+        setTimeout(() => {
+            startAnimation();
+        },1000)
+    }, 1000);
 }, 3000);
 
 // Animate Zoom (Enlarge)
