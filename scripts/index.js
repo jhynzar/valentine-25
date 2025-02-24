@@ -17,14 +17,6 @@ setTimeout(() => {
         },2000)
     });
 
-    setTimeout(() => {
-        let parentHeartBox = document.querySelectorAll('.heart-box');
-
-        parentHeartBox.forEach((element) => element.classList.add('hover'))
-        setTimeout(() => {
-            startAnimation();
-        },1000)
-    }, 1000);
 }, 3000);
 
 // Animate Zoom (Enlarge)
@@ -87,7 +79,7 @@ animateUnflip = () => {
 
 // For Flipping
 
-let flippedHeartCounter = 0;
+// let flippedHeartCounter = 0; // flip counter
 
 let startAnimation = () => {
 
@@ -114,12 +106,18 @@ let clickAndTouchListener = (e) => {
         parentHeartBox.classList.contains('hover') !== true // Not already clicked/touched
     ) { // if anywhere inside heart-box
         parentHeartBox.classList.add('hover');
-        flippedHeartCounter++;
+        // flippedHeartCounter++; // flip counter
 
         // If all heartboxes are flipped (129 boxes as of 2-13-2025)
-        if (flippedHeartCounter === 129) {
+        // if (flippedHeartCounter === 129) { // flip counter
+        //     startAnimation();
+        // }
+
+        // Click 1 flip all
+        document.querySelectorAll('.heart-box').forEach((element) => element.classList.add('hover'))
+        setTimeout(() => {
             startAnimation();
-        }
+        },1000)
     }
 }
 
